@@ -1,0 +1,104 @@
+// Color Variables - Design System
+// Primary Colors
+$color-primary-green: #87c241;
+$color-primary-dark-green: #63a022;
+
+// Secondary Colors
+$color-secondary-dark: #354e57;
+$color-secondary-gray: #848f93;
+
+// Background Colors
+$color-background-light: #eef3f4;
+$color-background-lighter: #dfedcf;
+$color-background-white: #ffffff;
+
+// Text Colors
+$color-text-primary: #354e57;
+$color-text-white: #ffffff;
+
+// Semantic Colors (for easier usage)
+$color-primary: $color-primary-green;
+$color-secondary: $color-secondary-dark;
+$color-text: $color-text-primary;
+$color-background: $color-background-white;
+
+// Typography
+$font-family-primary: var(--font-proxima-nova);
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Font Sizes - Design System
+$font-size-48: 3rem; // 48px - Proxima Nova Bold
+$font-size-28: 1.75rem; // 28px - Proxima Nova Bold
+$font-size-26: 1.625rem; // 26px - Proxima Nova Medium
+$font-size-25: 1.5625rem; // 25px - Proxima Nova Medium
+$font-size-20: 1.25rem; // 20px - Proxima Nova Medium
+$font-size-16: 1rem; // 16px - Proxima Nova Regular
+
+// Base Font Sizes (aliases for easier usage)
+$font-size-base: $font-size-16;
+$font-size-small: 0.875rem; // 14px
+$font-size-large: $font-size-20;
+$font-size-xlarge: $font-size-28;
+$font-size-xxlarge: $font-size-48;
+
+// Spacing
+$spacing-xs: 0.5rem; // 8px
+$spacing-sm: 1rem; // 16px
+$spacing-md: 1.5rem; // 24px
+$spacing-lg: 2rem; // 32px
+$spacing-xl: 3rem; // 48px
+$spacing-xxl: 4rem; // 64px
+
+// Breakpoints
+$breakpoint-mobile: 375px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
+
+// Container Widths (Based on Design: 1259px reference)
+$container-max-width: 1366px; // Full viewport width
+$container-content-width: 1200px; // Content area with padding
+$container-narrow-width: 1000px; // For narrower sections
+
+// Container Padding
+$container-padding-mobile: $spacing-md; // 24px
+$container-padding-tablet: $spacing-lg; // 32px
+$container-padding-desktop: $spacing-xl; // 48px
+
+// Z-index layers
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Transitions
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.15s ease;
+$transition-slow: all 0.5s ease;
+
+// Animation Durations
+$animation-duration-fast: 0.4s;
+$animation-duration-base: 0.6s;
+$animation-duration-slow: 0.8s;
+$animation-duration-very-slow: 1.2s;
+
+// Animation Delays
+$animation-delay-none: 0s;
+$animation-delay-short: 0.1s;
+$animation-delay-medium: 0.2s;
+$animation-delay-long: 0.3s;
+
+// Animation Timing Functions
+$animation-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+$animation-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$animation-ease-out: cubic-bezier(0, 0, 0.2, 1); // Deceleration
+$animation-ease-in-out: cubic-bezier(0.4, 0, 0.6, 1); // Smooth start & end
+$animation-ease-premium: cubic-bezier(0.25, 0.46, 0.45, 0.94); // Premium smooth (ease-out-quad)
+$animation-ease-elegant: cubic-bezier(0.23, 1, 0.32, 1); // Elegant, natural (ease-out-quint)

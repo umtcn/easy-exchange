@@ -1,0 +1,121 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.header {
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    top: env(safe-area-inset-top, 0); // Safe area support - moves header below status bar/notch
+    left: 0;
+    z-index: $z-index-sticky;
+    padding: $spacing-xxl 0;
+
+    @include respond-to('tablet') {
+        padding: $spacing-xl 0;
+    }
+
+    @include respond-to('desktop') {
+        padding-top: calc($spacing-xl * 1.8);
+        padding-bottom: $spacing-md;
+    }
+}
+
+.container {
+    max-width: $container-content-width; // 1200px
+    margin: 0 auto;
+    padding: 0 $container-padding-mobile;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond-to('tablet') {
+        padding: 0 $container-padding-tablet;
+    }
+
+    @include respond-to('desktop') {
+        padding: 0 $container-padding-desktop;
+    }
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    transition: opacity $transition-fast;
+    padding: 5px;
+    padding-top: 12px;
+
+
+    @include animate-slide-in-left($duration: $animation-duration-slow,
+        $delay: $animation-delay-medium,
+        $distance: 120px);
+
+    // Accessibility - Reduced motion support
+    @include respect-motion-preference;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-primary-green;
+        outline-offset: 4px;
+        border-radius: 4px;
+    }
+}
+
+.logo {
+    height: 20px;
+    width: auto;
+
+    @include respond-to('tablet') {
+        height: 24px;
+    }
+
+    @include respond-to('desktop') {
+        height: 32px;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+}
+
+.loginButton {
+    font-family: $font-family-primary;
+    font-size: 0.875rem;
+    font-weight: $font-weight-medium;
+    color: $color-secondary-dark;
+    text-decoration: none;
+    padding: $spacing-xs $spacing-sm;
+    transition: color $transition-fast;
+    letter-spacing: 0.5px;
+
+    @include animate-slide-in-down($duration: $animation-duration-slow,
+        $delay: $animation-delay-medium,
+        $distance: 120px);
+
+    // Accessibility - Reduced motion support
+    @include respect-motion-preference;
+
+    @include respond-to('tablet') {
+        font-size: 0.875rem;
+        padding: $spacing-xs $spacing-md;
+    }
+
+    @include respond-to('desktop') {
+        font-size: 0.875rem;
+        padding: 0rem;
+    }
+
+    &:hover {
+        color: $color-primary-green;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-primary-green;
+        outline-offset: 4px;
+        border-radius: 4px;
+    }
+}

@@ -1,0 +1,9 @@
+// Convert px to rem
+@function rem($px, $base: 16) {
+    @return calc($px / $base) * 1rem;
+}
+
+// Get spacing value
+@function spacing($multiplier: 1) {
+    @return calc($spacing-sm * $multiplier);
+}

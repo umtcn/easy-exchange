@@ -1,0 +1,82 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Text utility classes based on design system
+
+// Font sizes
+.text-48 {
+    font-size: $font-size-48;
+}
+
+.text-28 {
+    font-size: $font-size-28;
+}
+
+.text-26 {
+    font-size: $font-size-26;
+}
+
+.text-25 {
+    font-size: $font-size-25;
+}
+
+.text-20 {
+    font-size: $font-size-20;
+}
+
+.text-16 {
+    font-size: $font-size-16;
+}
+
+// Font weights
+.font-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-bold {
+    font-weight: $font-weight-bold;
+}
+
+// Text colors
+.text-primary {
+    color: $color-text-primary;
+}
+
+.text-white {
+    color: $color-text-white;
+}
+
+.text-green {
+    color: $color-primary-green;
+}
+
+.text-dark-green {
+    color: $color-primary-dark-green;
+}
+
+// Typography presets from design system
+.heading-large {
+    @include font-heading-large;
+    color: $color-text-primary;
+}
+
+.heading-medium {
+    @include font-heading-medium;
+    color: $color-text-primary;
+}
+
+.body-large {
+    @include font-body-large;
+}
+
+.body-medium {
+    @include font-body-medium;
+}
+
+.body-regular {
+    @include font-body-regular;
+}

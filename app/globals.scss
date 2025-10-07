@@ -1,0 +1,44 @@
+// Use modern @use instead of @import
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/functions' as *;
+@use '../styles/abstracts/mixins' as *;
+
+// Forward abstracts for components
+@forward '../styles/abstracts/variables';
+@forward '../styles/abstracts/functions';
+@forward '../styles/abstracts/mixins';
+
+@use '../styles/base/reset';
+@use '../styles/base/typography';
+@use '../styles/utils/helpers';
+@use '../styles/utils/text';
+
+// Global body styles
+body {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    color: $color-text-primary;
+    background: $color-background-white;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    overflow: hidden;
+
+    // Safe area support for mobile devices (bottom only - header handles top)
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+// Smooth scrolling
+html {
+    scroll-behavior: smooth;
+    background: $color-background-white;
+    overflow: hidden;
+}
+
+// Remove default margin and padding
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

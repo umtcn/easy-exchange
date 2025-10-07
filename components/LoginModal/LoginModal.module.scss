@@ -1,0 +1,264 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+// Overlay - Content width only (max 1366px)
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: $container-max-width;
+    height: 100vh;
+    background: rgba($color-secondary-dark, 0.8); // #354e57
+    z-index: $z-index-modal-backdrop;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: $spacing-lg;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+
+    // Safe area support for modal
+    padding-top: calc($spacing-lg + env(safe-area-inset-top, 0px));
+    padding-bottom: calc($spacing-lg + env(safe-area-inset-bottom, 0px));
+
+    @include respond-to('tablet') {
+        padding: 10rem;
+        padding-top: calc(10rem + env(safe-area-inset-top, 0px));
+        padding-bottom: calc(10rem + env(safe-area-inset-bottom, 0px));
+        align-items: flex-start;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// Modal Container
+.modal {
+    background: $color-background-white;
+    border-radius: 32px;
+    width: 100%;
+    max-width: 480px;
+    padding: 3rem 2rem;
+    position: relative;
+    animation: slideDown 0.6s ease;
+    margin-top: $spacing-md;
+
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.15),
+        0 20px 50px rgba(0, 0, 0, 0.1),
+        0 0 1px rgba(0, 0, 0, 0.1);
+
+    @include respond-to('tablet') {
+        padding: 2rem 4rem;
+        margin-top: $spacing-lg;
+    }
+
+    @include respond-to('desktop') {
+        padding: 2rem 4rem;
+    }
+
+
+    &.closing {
+        animation: slideUp 0.5s ease forwards;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+}
+
+// Logo Container
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacing-sm;
+
+    @include respond-to('tablet') {
+        margin-bottom: $spacing-md;
+    }
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+
+    @include respond-to('tablet') {
+        width: 300px;
+    }
+}
+
+// Green Divider
+.divider {
+    width: 100%;
+    height: 4px;
+    background: $color-primary-green;
+    margin-bottom: $spacing-md;
+    border-radius: 2px;
+
+    @include respond-to('tablet') {
+        margin-bottom: $spacing-lg;
+    }
+}
+
+// Title
+.title {
+    font-family: $font-family-primary;
+    font-size: $font-size-25;
+    font-weight: $font-weight-bold;
+    color: $color-primary-green;
+    text-align: left;
+    margin: 0 0 $spacing-lg 0;
+
+    @include respond-to('tablet') {
+        font-size: $font-size-28;
+        margin: 0 0 $spacing-xl 0;
+    }
+}
+
+// Form
+.form {
+    width: 100%;
+}
+
+.formGroup {
+    margin-bottom: $spacing-md;
+
+    @include respond-to('tablet') {
+        margin-bottom: $spacing-lg;
+    }
+}
+
+.label {
+    display: none;
+}
+
+.input {
+    width: 100%;
+    height: 48px;
+    padding: $spacing-sm;
+    padding-left: $spacing-sm;
+    font-family: $font-family-primary;
+    font-size: $font-size-20;
+    font-weight: $font-weight-regular;
+    color: $color-secondary-dark;
+    background: $color-background-white;
+    border: 1px solid rgba($color-secondary-gray, 0.2);
+    border-left: 6px solid $color-primary-green;
+    border-radius: 0px;
+    outline: none;
+    box-shadow: 0 2px 8px rgba($color-primary-green, 0.08);
+    transition: all 0.3s ease;
+
+    &:focus {
+        border-left-color: $color-primary-dark-green;
+        box-shadow: 0 2px 12px rgba($color-primary-green, 0.15);
+    }
+
+    &::placeholder {
+        color: rgba($color-text-primary, 0.4);
+    }
+}
+
+// Links Container
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to('tablet') {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-lg;
+    }
+}
+
+.link {
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    color: $color-secondary-dark;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $color-primary-green;
+        text-decoration: underline;
+    }
+
+    @include respond-to('tablet') {
+        font-size: $font-size-16;
+    }
+}
+
+// Submit Button
+.submitButton {
+    width: 100%;
+    height: 48px;
+    padding: 0 $spacing-xl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-family-primary;
+    font-size: $font-size-20;
+    font-weight: $font-weight-bold;
+    color: $color-text-white;
+    background: $color-primary-green;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover:not(:disabled) {
+        background: $color-primary-dark-green;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($color-primary-green, 0.3);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    @include respond-to('tablet') {
+        height: 56px;
+        font-size: $font-size-28;
+    }
+}

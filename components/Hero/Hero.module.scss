@@ -1,0 +1,278 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.hero {
+    width: 100%;
+    min-height: 90vh;
+    background: $color-background-white;
+    display: flex;
+    align-items: center;
+    padding-top: calc($spacing-xl * 3);
+    padding-bottom: $spacing-xl;
+    position: relative;
+
+    @include respond-to('tablet') {
+        padding-top: calc($spacing-xxl * 2.5); // 160px tablet
+
+    }
+
+    @include respond-to('desktop') {
+        // Desktop: Header total height + extra gap
+        padding-top: calc($spacing-xl * 1.8 + $spacing-xl + $spacing-md); // 158px
+
+    }
+}
+
+.container {
+    max-width: $container-content-width; // 1200px
+    margin: 0 auto;
+    padding: 0 $container-padding-mobile;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    align-items: center;
+
+    @include respond-to('tablet') {
+        padding: 0 $container-padding-tablet;
+        gap: $spacing-xl; // Tablet: 48px
+    }
+
+    @include respond-to('desktop') {
+        padding: 0 $container-padding-desktop;
+        grid-template-columns: 1fr 472px;
+        gap: $spacing-xxl; // Desktop: 64px
+        align-items: center;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    text-align: center;
+
+    @include respond-to('tablet') {
+        gap: $spacing-lg; // Tablet: 32px
+    }
+
+    @include respond-to('desktop') {
+        text-align: left;
+        gap: $spacing-lg; // Desktop: 32px
+
+        padding-top: calc($spacing-md * 2.5);
+        padding-inline: $spacing-md;
+    }
+}
+
+.title {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: calc($spacing-xs / 2);
+
+    @include animate-slide-in-down($duration: $animation-duration-slow, // 0.8s
+        $delay: $animation-delay-medium, // 0.2s
+        $distance: 280px);
+
+    // Accessibility
+    @include respect-motion-preference;
+}
+
+.titlePrimary {
+    font-size: 2rem; // 32px mobile
+    color: $color-secondary-dark;
+    display: block;
+
+    @include respond-to('tablet') {
+        font-size: 2.5rem; // 40px tablet
+    }
+
+    @include respond-to('desktop') {
+        font-size: $font-size-48; // 48px desktop
+    }
+}
+
+.titleSecondary {
+    font-size: 2rem; // 32px mobile
+    color: $color-primary-green;
+    display: block;
+
+    @include respond-to('tablet') {
+        font-size: 2.5rem; // 40px tablet
+    }
+
+    @include respond-to('desktop') {
+        font-size: $font-size-48; // 48px desktop
+    }
+}
+
+.description {
+    font-family: $font-family-primary;
+    font-size: $font-size-16;
+    font-weight: $font-weight-medium;
+    color: rgba($color-secondary-dark, 1);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 540px;
+
+    @include animate-slide-in-down($duration: $animation-duration-slow,
+        $delay: calc($animation-delay-medium + 0.1s),
+        $distance: 140px);
+
+    // Accessibility
+    @include respect-motion-preference;
+
+    @include respond-to('tablet') {
+        font-size: $font-size-16;
+    }
+
+    @include respond-to('desktop') {
+        max-width: 410px;
+    }
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-family-primary;
+    font-size: $font-size-16;
+    font-weight: $font-weight-bold;
+    color: $color-primary-green;
+    background: transparent;
+    border: 2px solid $color-primary-green;
+    border-radius: 0.5rem;
+    padding: 12px $spacing-xl;
+    text-decoration: none;
+    transition: all $transition-base;
+    cursor: pointer;
+    align-self: center;
+    min-width: 180px;
+    margin-top: 0;
+
+
+    @include animate-slide-in-down($duration: $animation-duration-slow,
+        $delay: calc($animation-delay-medium + 0.2s),
+        $distance: 80px);
+
+    // Accessibility
+    @include respect-motion-preference;
+
+    @include respond-to('tablet') {
+        padding: 4px $spacing-sm;
+        font-size: $font-size-20;
+        margin-top: $spacing-xs;
+    }
+
+    @include respond-to('desktop') {
+        align-self: flex-start;
+        padding: 8px $spacing-lg;
+
+        margin-top: $spacing-xs;
+    }
+
+    &:hover {
+        background: $color-primary-green;
+        color: $color-background-white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($color-primary-green, 0.3);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-primary-green;
+        outline-offset: 4px;
+    }
+}
+
+.illustration {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+
+    @include animate-slide-in-up($duration: $animation-duration-slow,
+        $delay: $animation-delay-long,
+        $distance: 100px);
+
+    // Accessibility
+    @include respect-motion-preference;
+
+    @include respond-to('tablet') {
+        max-width: 400px; // Tablet: 400px
+    }
+
+    @include respond-to('desktop') {
+        max-width: 472px; // Desktop: Tam 472px
+        margin: 0;
+
+        margin-top: calc($spacing-md * -1.5);
+    }
+
+    // Background Circle - Animated
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        padding-bottom: 120%;
+        background: $color-background-light; // #EEF3F4
+        border-radius: 50%;
+        z-index: -1;
+
+        // Responsive positioning
+        @include respond-to('desktop') {
+            left: 40%;
+        }
+
+
+        animation: circleGrow $animation-duration-slow $animation-ease-elegant $animation-delay-long forwards;
+        transform-origin: center;
+        will-change: transform;
+
+        @keyframes circleGrow {
+            from {
+                transform: translate(-50%, -50%) scale(0.05);
+                opacity: 0;
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+    }
+
+    // Accessibility - Reduced motion
+    @media (prefers-reduced-motion: reduce) {
+        &::before {
+            animation: none !important;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+    }
+
+
+    :global(.hero-illustration) {
+        width: 100%;
+        height: auto;
+
+        img {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: contain;
+        }
+    }
+}

@@ -1,0 +1,116 @@
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/mixins' as *;
+
+// Page container - Fixed viewport height with internal scroll
+.pageContainer {
+    width: 100%;
+    max-width: $container-max-width; // 1366px
+    height: 100vh;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    background: $color-background-white;
+
+    // Safe area support - bottom padding for iOS home indicator and Android navigation
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    // Scrollbar hidden - WebKit (Chrome, Safari, Edge)
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    // Scrollbar hidden - Firefox
+    scrollbar-width: none;
+
+    // Scrollbar hidden - IE 10+
+    -ms-overflow-style: none;
+
+    @include respond-to('tablet') {
+        max-height: 760px;
+    }
+}
+
+.main {
+    width: 100%;
+}
+
+.container {
+    @include container;
+}
+
+.colorPalette {
+    margin: $spacing-xl 0;
+    padding: $spacing-lg;
+    background: $color-background-light;
+    border-radius: 8px;
+}
+
+.colorGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+}
+
+.colorBox {
+    height: 120px;
+    @include flex-center;
+    border-radius: 8px;
+    color: $color-text-white;
+    font-weight: $font-weight-bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    span {
+        background: rgba(0, 0, 0, 0.3);
+        padding: $spacing-xs $spacing-sm;
+        border-radius: 4px;
+    }
+
+    &.green {
+        background: $color-primary-green;
+    }
+
+    &.darkGreen {
+        background: $color-primary-dark-green;
+    }
+
+    &.gray {
+        background: $color-secondary-gray;
+    }
+
+    &.darkBlue {
+        background: $color-secondary-dark;
+    }
+
+    &.lightGray {
+        background: $color-background-light;
+        color: $color-text-primary;
+
+        span {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &.lightGreen {
+        background: $color-background-lighter;
+        color: $color-text-primary;
+
+        span {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.typography {
+    margin: $spacing-xl 0;
+    padding: $spacing-lg;
+    background: $color-background-white;
+    border: 2px solid $color-background-light;
+    border-radius: 8px;
+
+    p {
+        margin: $spacing-md 0;
+        color: $color-text-primary;
+    }
+}
