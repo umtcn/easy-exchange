@@ -555,6 +555,4 @@ Have questions or issues?
 
 Made with ❤️ using Next.js and TypeScript
 
-**[⬆ Back to Top](#-easy-exchange---currency-exchange-platform)**
-
 </div>
